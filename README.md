@@ -11,8 +11,7 @@ image. But for this small task just pull and run =)
 ### Using MVVM
 
 ## Assumptions
-
-### Since the test demands using SwiftData or Coredata, the details and favorite views
+Since the test demands using SwiftData or Coredata, the details and favorite views
 dont make use of a API Request. Just first screen for Top Rated and Most Popular movies
 
 ## Difficulties Faced 
