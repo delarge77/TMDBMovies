@@ -39,8 +39,11 @@ class MoviesViewModel: ObservableObject {
             let page = try await service.fecthMostPopularMoviesPage()
             modelContext?.insert(page)
         } catch {
-            guard let error = error as? NetworkAPIError else { return }
-            self.errorMessage = error.customDescription
+            if let error = error as? NetworkAPIError {
+                errorMessage = error.customDescription
+            } else {
+                self.errorMessage = error.localizedDescription
+            }
         }
     }
 }

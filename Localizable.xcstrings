@@ -19,7 +19,14 @@
       }
     },
     "Favorites" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoritos"
+          }
+        }
+      }
     },
     "Most popular Movies" : {
       "extractionState" : "manual",
@@ -33,7 +40,25 @@
       }
     },
     "Movies" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filmes"
+          }
+        }
+      }
+    },
+    "No favorites added" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem Favoritos"
+          }
+        }
+      }
     },
     "Release Date: " : {
       "localizations" : {

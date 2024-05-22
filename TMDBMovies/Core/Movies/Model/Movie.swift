@@ -69,7 +69,7 @@ class Movie: Codable, Identifiable, Hashable {
     let title: String?
     let posterPath: String?
     let releaseDate: String?
-    var isFavourite: Bool?
+    var isFavourite: Bool
     
     enum CodingKeys: String, CodingKey {
         case overview, title, id
@@ -85,6 +85,16 @@ class Movie: Codable, Identifiable, Hashable {
         self.posterPath = try container.decodeIfPresent(String.self, forKey: .posterPath)
         self.releaseDate = try container.decodeIfPresent(String.self, forKey: .releaseDate)
         self.isFavourite = false // adding custom parameter, preferably should come from API, but using for SwiftData purposes
+    }
+    
+    
+    init(id: Int, overview: String?, title: String?, posterPath: String?, releaseDate: String, isFavourite: Bool) {
+        self.id = id
+        self.overview = overview
+        self.title = title
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+        self.isFavourite = isFavourite
     }
     
     func encode(to encoder: any Encoder) throws {

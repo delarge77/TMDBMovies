@@ -18,22 +18,7 @@ struct MovieDetailsView: View {
     
     var body: some View {
         HStack{
-            Text(movie.title ?? "")
-                .fontWeight(.semibold)
-                .font(.subheadline)
-            
-            Button(action: {
-                if movie.isFavourite == false {
-                    movie.isFavourite = true
-                } else if movie.isFavourite == true {
-                    movie.isFavourite = false
-                }
-            }, label: {
-                Image(systemName: movie.isFavourite == true ? "heart.fill" : "heart")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(movie.isFavourite == true ? .red : Color(Constants.shared.color))
-            })
+            MovieDetailsHeaderView(movie: movie)
         }
         
         VStack {
@@ -62,7 +47,3 @@ struct MovieDetailsView: View {
         }
     }
 }
-
-//#Preview {
-//    MovieDetailsView(movie:)
-//}

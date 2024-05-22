@@ -10,12 +10,6 @@ import SwiftData
 
 struct FavoritesView: View {
     
-    let service: MovieDataServiceProtocol
-    
-    init(service: MovieDataServiceProtocol) {
-        self.service = service
-    }
-    
     @Query(filter: #Predicate<Movie> { movie in
         movie.isFavourite == true
     }) var favoriteMovies: [Movie]
@@ -34,11 +28,13 @@ struct FavoritesView: View {
                 }
             }
             .navigationTitle("Favorite Movies")
-            .navigationBarItems(trailing: EditButton())
+            .toolbar {
+                if !favoriteMovies.isEmpty { EditButton() }
+            }
         }
     }
 }
 
-//#Preview {
-//    FavoritesView()
-//}
+#Preview {
+    FavoritesView()
+}

@@ -10,7 +10,6 @@ import SwiftData
 
 struct MoviesView: View {
 
-    private let service: MovieDataServiceProtocol
     @EnvironmentObject var viewModel: MoviesViewModel
     @State private var isOn: Bool = false
     @Environment(\.colorScheme) private var colorScheme
@@ -18,16 +17,11 @@ struct MoviesView: View {
     @Query var popularPageFromDB: [PopularPage]
     @Query var topRatedPageFromDB: [TopRatedPage]
     
-    
-    
-    init(service: MovieDataServiceProtocol) {
-        self.service = service
-    }
-    
     var body: some View {
         TabView {
             NavigationStack {
                 Toggle("", isOn: $isOn).tint(Color(Constants.shared.color))
+                    .padding(.trailing, 8)
                 HStack (){
                     TMDBHeader(title: "Top Rated Movies")
                     Spacer()
@@ -91,7 +85,7 @@ struct MoviesView: View {
                 Label("Movies", systemImage: "person.crop.circle.fill")
             }
             
-            FavoritesView(service: service)
+            FavoritesView()
                 .tabItem {
                     Label("Favorites", systemImage: "person.crop.circle.fill")
                 }
@@ -103,18 +97,12 @@ struct MoviesView: View {
         }
     }
         
-    
     func switchAppearance() {
         viewColorScheme = colorScheme
-        if colorScheme == .light {
-            isOn = true
-            return
-        }
-        
-        isOn = false
+        isOn = colorScheme == .light
     }
 }
 
 #Preview {
-    MoviesView(service: MockMoviesDataService())
+    MoviesView()
 }

@@ -25,7 +25,7 @@ struct FavoritesMoviesListView: View {
                     Text(movie.title ?? "")
                         .fontWeight(.semibold)
                         .font(.system(size: 10))
-                        .frame(width: 64, height: 30)
+                        .frame(width: 64)
                         .foregroundStyle(Color(Constants.shared.color))
                         .truncationMode(.tail)
                         
