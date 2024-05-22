@@ -1,14 +1,12 @@
 # TMDBMovies
 
 ## How to build :
-
-### Since it's a small test project I decided to not use any 3rd party library.
+Since it's a small test project I decided to not use any 3rd party library.
 In production app I would rather use Kingfisher for instance for downloading and caching 
 image. But for this small task just pull and run =)
 
 ## Architecture decision
-
-### Using MVVM
+Using MVVM
 
 ## Assumptions
 Since the test demands using SwiftData or Coredata, the details and favorite views
