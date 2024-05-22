@@ -1,0 +1,61 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
+    "Favorite Movies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filmes Favoritos"
+          }
+        }
+      }
+    },
+    "Favorites" : {
+
+    },
+    "Most popular Movies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filmes mais populares"
+          }
+        }
+      }
+    },
+    "Movies" : {
+
+    },
+    "Release Date: " : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data de lançamento: "
+          }
+        }
+      }
+    },
+    "Top Rated Movies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filmes melhores rankeados"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
