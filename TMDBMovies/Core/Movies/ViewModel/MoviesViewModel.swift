@@ -12,7 +12,6 @@ import SwiftData
 class MoviesViewModel: ObservableObject {
     
     @Published var errorMessage: String?
-    @Published var isLoading = true
     
     var modelContext: ModelContext?
     public let service: MovieDataServiceProtocol
@@ -25,9 +24,7 @@ class MoviesViewModel: ObservableObject {
     
     @MainActor
     func fecthTopRatedMoviesPage() async {
-        isLoading = true
         do {
-            isLoading = false
             let page = try await service.fecthTopRatedMoviesPage()
             modelContext?.insert(page)
         } catch {
@@ -38,9 +35,7 @@ class MoviesViewModel: ObservableObject {
     
     @MainActor
     func fecthMostPopularMoviesPage() async {
-        isLoading = true
         do {
-            isLoading = false
             let page = try await service.fecthMostPopularMoviesPage()
             modelContext?.insert(page)
         } catch {

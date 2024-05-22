@@ -34,6 +34,7 @@
 		8733C0582BFBC2CD008F7902 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8733C0562BFBC2CD008F7902 /* Localizable.xcstrings */; };
 		8751AC832BFC786F00AA4F05 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751AC822BFC786F00AA4F05 /* FavoritesView.swift */; };
 		8751AC932BFD410F00AA4F05 /* FavoritesMoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751AC922BFD410F00AA4F05 /* FavoritesMoviesListView.swift */; };
+		8751AC952BFE124400AA4F05 /* TMDBViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751AC942BFE124400AA4F05 /* TMDBViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		8733C0562BFBC2CD008F7902 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8751AC822BFC786F00AA4F05 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8751AC922BFD410F00AA4F05 /* FavoritesMoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesMoviesListView.swift; sourceTree = "<group>"; };
+		8751AC942BFE124400AA4F05 /* TMDBViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			children = (
 				8733BFFE2BF74683008F7902 /* TMDBMoviesTests.swift */,
 				8733C0392BF753D0008F7902 /* TestData.swift */,
+				8751AC942BFE124400AA4F05 /* TMDBViewModelTests.swift */,
 			);
 			path = TMDBMoviesTests;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8751AC952BFE124400AA4F05 /* TMDBViewModelTests.swift in Sources */,
 				8733BFFF2BF74683008F7902 /* TMDBMoviesTests.swift in Sources */,
 				8733C03B2BF753D0008F7902 /* TestData.swift in Sources */,
 			);

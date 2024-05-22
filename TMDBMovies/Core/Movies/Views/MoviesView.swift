@@ -17,7 +17,6 @@ struct MoviesView: View {
     @State private var viewColorScheme: ColorScheme = .light
     @Query var popularPageFromDB: [PopularPage]
     @Query var topRatedPageFromDB: [TopRatedPage]
-    @Environment(\.modelContext) var context
     
     
     

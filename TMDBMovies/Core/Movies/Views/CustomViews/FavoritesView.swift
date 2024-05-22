@@ -10,7 +10,6 @@ import SwiftData
 
 struct FavoritesView: View {
     
-    @Environment(\.modelContext) var context
     let service: MovieDataServiceProtocol
     
     init(service: MovieDataServiceProtocol) {
