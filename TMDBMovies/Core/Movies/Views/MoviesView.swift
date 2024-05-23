@@ -27,7 +27,7 @@ struct MoviesView: View {
                     Spacer()
                 }
                 
-                VStack(alignment: .leading){
+                LazyVStack(alignment: .leading){
                     ScrollView( .horizontal, showsIndicators: false) {
                         HStack {
                             if let topMovies = topRatedPageFromDB.first?.topRatedMovies {
