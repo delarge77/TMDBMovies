@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct MoviesView: View {
-
+    
     @EnvironmentObject var viewModel: MoviesViewModel
     @State private var isOn: Bool = false
     @Environment(\.colorScheme) private var colorScheme
@@ -18,77 +18,67 @@ struct MoviesView: View {
     @Query var topRatedPageFromDB: [TopRatedPage]
     
     var body: some View {
-        TabView {
-            NavigationStack {
-                Toggle("", isOn: $isOn).tint(Color(Constants.shared.color))
-                    .padding(.trailing, 8)
-                HStack (){
-                    TMDBHeader(title: "Top Rated Movies")
-                    Spacer()
-                }
-                
-                LazyVStack(alignment: .leading){
-                    ScrollView( .horizontal, showsIndicators: false) {
-                        HStack {
-                            if let topMovies = topRatedPageFromDB.first?.topRatedMovies {
-                                ForEach(topMovies) { movie in
-                                    ScrollView ( .horizontal, showsIndicators: false){
-                                        NavigationLink(value: movie) {
-                                            HStack {
-                                                TopRatedMoviesView(movie: movie)
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .padding()
-                }
-                ScrollView {
-                    VStack (alignment: .leading){
-                        TMDBHeader(title: "Most popular Movies")
-                        if let popularMovies = popularPageFromDB.first?.popularMovies {
-                            ForEach(popularMovies) { movie in
-                                    NavigationLink(value: movie) {
-                                        VStack (alignment: .leading, spacing: 24){
-                                            MostPopularMoviesView(movie: movie)
-                                        }
-                                        .padding()
-                                    }
-                                }
-                            .navigationDestination(for: Movie.self) { movie in
-                                MovieDetailsView(for: movie)
-                            }
-                        }
-                    }
-                }
-            }
-            .preferredColorScheme(viewColorScheme)
-            .onChange(of: isOn, { _, newValue in
-                viewColorScheme = newValue == false ? .dark : .light
-            })
-            .onAppear{
-                switchAppearance()
-            }
-            .task {
-                
-                if topRatedPageFromDB.isEmpty {
-                    await viewModel.fecthTopRatedMoviesPage()
-                }
-                
-                if popularPageFromDB.isEmpty {
-                    await viewModel.fecthMostPopularMoviesPage()
-                }
-            }
-            .tabItem {
-                Label("Movies", systemImage: "person.crop.circle.fill")
+        NavigationStack {
+            Toggle("", isOn: $isOn).tint(Color(Constants.shared.color))
+                .padding(.trailing, 8)
+            HStack (){
+                TMDBHeader(title: "Top Rated Movies")
+                Spacer()
             }
             
-            FavoritesView()
-                .tabItem {
-                    Label("Favorites", systemImage: "person.crop.circle.fill")
+            LazyVStack(alignment: .leading){
+                ScrollView( .horizontal, showsIndicators: false) {
+                    HStack {
+                        if let topMovies = topRatedPageFromDB.first?.topRatedMovies {
+                            ForEach(topMovies) { movie in
+                                ScrollView ( .horizontal, showsIndicators: false){
+                                    NavigationLink(value: movie) {
+                                        HStack {
+                                            TopRatedMoviesView(movie: movie)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+                .padding()
+            }
+            ScrollView {
+                VStack (alignment: .leading){
+                    TMDBHeader(title: "Most popular Movies")
+                    if let popularMovies = popularPageFromDB.first?.popularMovies {
+                        ForEach(popularMovies) { movie in
+                            NavigationLink(value: movie) {
+                                VStack (alignment: .leading, spacing: 24){
+                                    MostPopularMoviesView(movie: movie)
+                                }
+                                .padding()
+                            }
+                        }
+                        .navigationDestination(for: Movie.self) { movie in
+                            MovieDetailsView(for: movie)
+                        }
+                    }
+                }
+            }
+        }
+        .preferredColorScheme(viewColorScheme)
+        .onChange(of: isOn, { _, newValue in
+            viewColorScheme = newValue == false ? .dark : .light
+        })
+        .onAppear{
+            switchAppearance()
+        }
+        .task {
+            
+            if topRatedPageFromDB.isEmpty {
+                await viewModel.fecthTopRatedMoviesPage()
+            }
+            
+            if popularPageFromDB.isEmpty {
+                await viewModel.fecthMostPopularMoviesPage()
+            }
         }
         .overlay{
             if let error = viewModel.errorMessage {
@@ -96,11 +86,12 @@ struct MoviesView: View {
             }
         }
     }
-        
+    
     func switchAppearance() {
         viewColorScheme = colorScheme
         isOn = colorScheme == .light
     }
+    
 }
 
 #Preview {

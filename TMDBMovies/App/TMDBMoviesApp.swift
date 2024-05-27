@@ -14,7 +14,7 @@ struct TMDBMoviesApp: App {
     let container: ModelContainer
     var body: some Scene {
         WindowGroup {
-            MoviesView()
+            MainTabView()
                 .environmentObject(MoviesViewModel(service: MovieDataService(), modelContext: container.mainContext))
                 .modelContainer(container)
         }
