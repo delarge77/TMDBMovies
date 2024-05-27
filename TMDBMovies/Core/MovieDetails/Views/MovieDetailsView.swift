@@ -44,6 +44,7 @@ struct MovieDetailsView: View {
                     
                 }
             }
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }
